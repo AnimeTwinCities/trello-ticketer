@@ -1,1 +1,17 @@
 services:
+    trello_api_restadapter:
+        class: %tebru_retrofit.rest_adapter.class%
+        factory:
+            - ATC\TrelloTicketer\TrelloApi\TrelloAdapterProvider
+            - create
+
+    trello_api_board_service:
+        class: InkApplications\TrelloApi\Board\BoardService
+        factory:
+            - @trello_api_restadapter
+            - create
+        arguments:
+            - InkApplications\TrelloApi\Board\BoardService
+        tags:
+            - { name: tebru_retrofit.register }
+
