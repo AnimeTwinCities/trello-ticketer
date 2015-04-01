@@ -1,3 +1,4 @@
-app:
-    resource: "@AppBundle/Controller/"
+web_ticketer:
+    resource: "@WebTicketerBundle/Controller/"
     type:     annotation
+    prefix:   /
